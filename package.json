@@ -4,8 +4,8 @@
   "description": "basic start to react apps with webpack",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "webpack --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -28,7 +28,8 @@
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.2"
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.1"
   },
   "dependencies": {
     "react": "^15.3.2",
