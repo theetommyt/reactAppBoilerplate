@@ -1,34 +1,30 @@
-var webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-	entry: './src/app.js',
+	entry: './app/index.js',
 	output: {
-		path: 'dist',
-		filename: 'bundle.js'
-	},
-	devServer: {
-		inline: true,
-		contentBase: './dist',
-		port: 3000
+		path: path.resolve(__dirname, 'dist'),
+		filename: 'index_bundle.js'
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
-				test: /\.js$/,
-				exclude: /(node_modules)/,
-				loader: 'babel',
-				query: {
-					presets: ['react', 'es2015']
-				}
+				test: /\.(js)$/,
+				use: 'babel-loader'
 			},
 			{
-				test: /\.scss$/,
-				loader: 'style-loader!css-loader!sass-loader'
-			},
-				{
-			    test: /\.(png|jpg)$/,
-			    loader: 'url-loader?limit=10000'
+				test: /\.css$/,
+				use: [
+					'style-loader',
+					'css-loader'
+				]
 			}
-	 ]
-	}
+		]
+	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: 'app/index.html'
+		})
+	]
 };
