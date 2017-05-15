@@ -3,7 +3,7 @@ import React from 'react';
 // var ReactDOM = require('reactDOM');
 import ReactDOM from 'react-dom';
 // include css files
-require('./index.css');
+require('./style/index.scss');
 
 
 class Users extends React.Component {
