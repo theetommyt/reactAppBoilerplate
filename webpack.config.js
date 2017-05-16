@@ -17,7 +17,7 @@ module.exports = {
 				test: /\.scss$/,
 				use: [
 					{
-					loader: "style-loader" // creates style nodes from JS strings
+						loader: "style-loader" // creates style nodes from JS strings
 					}, {
 						loader: "css-loader" // translates CSS into CommonJS
 					}, {
@@ -26,9 +26,9 @@ module.exports = {
 				],
 			},
 			{
-                test: /\.(eot|svg|ttf|woff|woff2)$/,
-                loader: 'file?name=dist/fonts/[name].[ext]'
-            },
+				test: /\.(eot|svg|ttf|woff|woff2)$/,
+				loader: 'file?name=dist/fonts/[name].[ext]'
+      },
 		]
 	},
 	plugins: [

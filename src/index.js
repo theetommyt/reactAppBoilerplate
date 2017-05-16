@@ -1,52 +1,14 @@
-// var React = require('react');
 import React from 'react';
-// var ReactDOM = require('reactDOM');
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 // include css files
 require('./style/index.scss');
-
-
-class Users extends React.Component {
-  render() {
-
-    var friends = this.props.list.filter(function (user) {
-      return user.friend === true
-    });
-
-    var nonFriends = this.props.list.filter(function (user) {
-      return user.friend !== true
-    });
-
-    return (
-      <div>
-        <h1>Friends</h1>
-        <ul>
-          {friends.map(function(user){
-            return <li key={user.name}> {user.name} </li>
-          })}
-        </ul>
-        
-        <hr />
-        
-        <h1> Non Friends </h1>
-        <ul>
-          {nonFriends.map(function (user) {
-            return <li key={user.name}> {user.name} </li>
-          })}
-        </ul>        
-      </div>
-    )
-  }
-}
+// import Components
+import Home from './pages/Home';
 
 ReactDOM.render(
-  <Users list={[
-    { name: 'Tyler', friend: true },
-    { name: 'Ryan', friend: true },
-    { name: 'Michael', friend: false },
-    { name: 'Mikenzi', friend: false },
-    { name: 'Jessica', friend: true },
-    { name: 'Dan', friend: false } ]} 
-  />,
+  <Router>
+    <Route exact path="/" component={Home} />
+  </Router>,
   document.getElementById('app')
 );
